@@ -42,3 +42,20 @@ FROM `departments`;
 
 -- 8. Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
 
+SELECT COUNT(*) AS 'numero di insegnanti'
+FROM `teachers`
+WHERE `phone` IS NULL;
+
+
+
+
+
+--------------------------------- Esercizi con GROUP BY -------------------------------------
+
+-- 1. Contare quanti iscritti ci sono stati ogni anno
+
+SELECT COUNT(*) AS 'iscritti per anno',  `year`
+FROM `courses` 
+GROUP BY `year`;
+
+-- 2. Contare gli insegnanti che hanno l'ufficio nello stesso edificio
