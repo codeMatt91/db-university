@@ -67,3 +67,9 @@ GROUP BY `year`;
 SELECT COUNT(*) AS 'persone_per_uffifio', `office_address`
 FROM `teachers` 
 GROUP BY `office_address`;
+
+-- 3. Calcolare la media dei voti di ogni appello d'esame
+
+SELECT ROUND(AVG(`vote`), 1) AS 'media_voto_esame', `exam_id` AS 'esame'
+FROM `exam_student`
+GROUP BY `exam_id`;
