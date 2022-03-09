@@ -16,6 +16,10 @@ SELECT `name`, `surname`, `date_of_birth`
 FROM `students`
 WHERE YEAR(`date_of_birth`) < 1991 
 
+SELECT `name`, `surname`, `date_of_birth`
+FROM `students`
+WHERE `date_of_birth` <  '1991/01/01';
+
 -- 4. Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di laurea (286)
 
 SELECT `name`, `period`, `year`
@@ -37,12 +41,12 @@ WHERE `level` = 'magistrale';
 
 -- 7. Da quanti dipartimenti è composta l'università? (12)
 
-SELECT COUNT(*) AS 'numero dipartimenti'
+SELECT COUNT(*) AS 'numero_dipartimenti'
 FROM `departments`;
 
 -- 8. Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
 
-SELECT COUNT(*) AS 'numero di insegnanti'
+SELECT COUNT(*) AS 'numero_di_insegnanti'
 FROM `teachers`
 WHERE `phone` IS NULL;
 
@@ -54,8 +58,12 @@ WHERE `phone` IS NULL;
 
 -- 1. Contare quanti iscritti ci sono stati ogni anno
 
-SELECT COUNT(*) AS 'iscritti per anno',  `year`
+SELECT COUNT(*) AS 'iscritti_per_anno',  `year`
 FROM `courses` 
 GROUP BY `year`;
 
 -- 2. Contare gli insegnanti che hanno l'ufficio nello stesso edificio
+
+SELECT COUNT(*) AS 'persone_per_uffifio', `office_address`
+FROM `teachers` 
+GROUP BY `office_address`;
