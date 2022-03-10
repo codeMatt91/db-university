@@ -18,7 +18,7 @@ WHERE YEAR(`date_of_birth`) < 1991
 
 SELECT `name`, `surname`, `date_of_birth`
 FROM `students`
-WHERE `date_of_birth` <  '1991/01/01';
+WHERE TIMESTAMPDIFF(YEAR, `date_of_birth`, CURDATE()) > 30;
 
 -- 4. Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di laurea (286)
 
