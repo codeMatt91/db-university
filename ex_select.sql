@@ -18,7 +18,11 @@ WHERE YEAR(`date_of_birth`) < 1991
 
 SELECT `name`, `surname`, `date_of_birth`
 FROM `students`
-WHERE TIMESTAMPDIFF(YEAR, `date_of_birth`, CURDATE()) > 30;
+WHERE TIMESTAMPDIFF(YEAR, `date_of_birth`, CURDATE()) > 30; -- CURDATE ci da la data attuale
+
+SELECT `name`, `surname`, `date_of_birth`
+FROM `students`
+WHERE `date_of_birth` < DATE_SUB(CURDATE(), INTERVAL 30 YEAR) -- DATE_SUB ci sottrae l'intervallo di tempo indicato (30)
 
 -- 4. Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di laurea (286)
 
