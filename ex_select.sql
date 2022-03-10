@@ -89,3 +89,9 @@ HAVING 'media_voto_esame' >= 18;
 SELECT COUNT(*) AS 'CORSI_DI_LAUREA', `department_id`
 FROM `degrees`
 GROUP BY `department_id`;
+
+SELECT COUNT(*) AS 'CORSI_DI_LAUREA', `departments`.`name`
+FROM `degrees`
+JOIN `departments`
+ON `departments`.`id` = `degrees`.`department_id`
+GROUP BY `department_id`;
