@@ -34,3 +34,15 @@ ON `degrees`.`id` = `students`.`degree_id`
 JOIN `departments`
 ON`departments`.`id` = `degrees`.`department_id`
 ORDER BY `students`.`name`ASC, `students`.`surname` ASC;
+
+-- 5. Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti
+
+SELECT `degrees`.`name` AS 'Nome_corso', `courses`.`name` AS 'Nome_corso', `teachers`.`name` AS 'Nome_insegnante', `teachers`.`surname` AS 'Cognome_Insegnante'
+FROM `degrees`
+JOIN `courses`
+ON `degrees`.`id` = `courses`.`degree_id`
+JOIN `course_teacher`
+ON `courses`.`id` = `course_teacher`.`course_id`
+JOIN `teachers`
+ON `teachers`.`id` = `course_teacher`.`teacher_id`
+ORDER BY `degrees`.`name`;
