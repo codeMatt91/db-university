@@ -33,4 +33,4 @@ JOIN `degrees`
 ON `degrees`.`id` = `students`.`degree_id`
 JOIN `departments`
 ON`departments`.`id` = `degrees`.`department_id`
-ORDER BY `students`.`surname` ASC;
+ORDER BY `students`.`name`ASC, `students`.`surname` ASC;
